@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G Digify | Your Digital Partner</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
     <!-- Background Video -->
+<section class="landing">
+
     <video autoplay muted loop playsinline class="bg-video" poster="poster.jpg">
         <source src="background.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -21,7 +25,7 @@
         <header class="navbar">
             <h1 class="logo">G-Digify</h1>
             <nav>
-                <a href="#about us">About Us</a>
+                <a href="#about">About Us</a>
                 <a href="#services">Services</a>
                 <a href="#our work">Our Work</a>
                 <a href="#how we work">How we Work</a>
@@ -47,6 +51,45 @@
 
             <a href="#contact" class="btn-primary">Book a Free Consultation</a>
         </main>
+</section>
+
+<!-- ABOUT US SECTION -->
+<section id="about" class="about-section">
+
+    <div class="about-container">
+        <h2>About G Digify</h2>
+
+        <p class="about-intro">
+            G Digify is a digital solutions and digital marketing firm focused on helping brands, businesses, and 
+            institutions establish a strong online presence and grow sustainably in the digital space.
+        </p>
+
+        <p>
+            We specialize in web and application development, digital marketing,
+            content creation, and systems maintenance.
+        </p>
+
+        <p>
+            At G Digify, we believe that going digital is no longer optional — it is essential. We work with 
+            businesses at different stages of growth to design, build, market, and maintain digital systems that 
+            drive visibility, engagement, and measurable results. From professional websites and applications to 
+            social media marketing, content creation, and system maintenance, we offer end-to-end digital solutions 
+            under one roof. Our approach combines strategy, creativity, and technology to ensure every solution we 
+            deliver aligns with your business goals. We don’t just build digital products, we build systems that 
+            work, scale, and evolve with your business. 
+        </p>
+
+        <p>What sets G Digify apart is our focus on clarity, reliability, and long-term value. We take time to 
+            understand your brand, your audience, and your objectives before recommending or implementing solutions. 
+            Whether you’re a startup looking to get online, a growing business seeking visibility, or an established 
+            organization optimizing systems and processes, we become your digital partner — not just a service 
+            provider.
+        </p>
+    </div>
+
+</section>
+
+
 
         <!-- SERVICES SECTION -->
         <section id="services" class="services-section">
@@ -126,10 +169,59 @@
             </div>
         </section>
 
-        <!-- CONTACT (placeholder for later) -->
-        <section id="contact" class="contact-section">
-            <!-- You can add a form or CTA here later -->
-        </section>
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Let’s Work Together</h2>
+            <p>
+                Have a project in mind or need help with your digital presence?
+                Reach out and let’s discuss how G Digify can support your growth.
+            </p>
+
+            <div class="contact-channels">
+
+                <a href="https://www.linkedin.com" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    LinkedIn
+                </a>
+
+                <a href="https://wa.me/254700000000" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    WhatsApp
+                </a>
+
+                <a href="mailto:info@gdigify.com">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email
+                </a>
+
+                <a href="tel:+254700000000">
+                    <i class="fa-solid fa-phone"></i>
+                    Call
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Company (Optional)">
+            <textarea rows="5" placeholder="Tell us about your project..." required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+    </div>
+
+</section>
+
 
     </div>
 <script src="script.js"></script>
