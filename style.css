@@ -379,6 +379,89 @@ nav a.active {
 }
 
 
+/* HOW WE WORK SECTION */
+.how-we-work {
+    background: linear-gradient(
+        160deg,
+        #0b0b0f,
+        #111827,
+        #0f172a
+    );
+    padding: 90px 10% 100px;
+    color: #f2f2f2;
+    text-align: center;
+}
+
+.how-hero h2 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.how-hero p {
+    color: #cfcfcf;
+    max-width: 600px;
+    margin: 0 auto 60px;
+}
+
+/* Workflow Layout */
+.workflow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* Step Card */
+.work-step {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 35px 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Icon */
+.step-icon {
+    font-size: 2.2rem;
+    display: inline-block;
+    margin-bottom: 18px;
+}
+
+/* Titles */
+.work-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* Text */
+.work-step p {
+    font-size: 0.9rem;
+    color: #cfcfcf;
+    line-height: 1.5;
+}
+
+/* Hover Effect */
+.work-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.15),
+                0 0 30px rgba(239, 68, 68, 0.1);
+}
+
+/* Note */
+.workflow-note {
+    margin-top: 50px;
+    font-size: 0.95rem;
+    color: #d0d0d0;
+    opacity: 0.9;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .how-hero h2 {
+        font-size: 2rem;
+    }
+}
+
+
 /* ================= CONTACT SECTION ================= */
 
 .contact-section {
@@ -580,6 +663,10 @@ nav a.active {
     border-color: #ffffff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .back-home {
     margin-top: 30px;
 }
@@ -593,3 +680,4 @@ nav a.active {
 .back-home a:hover {
     color: #ffffff;
 }
+
