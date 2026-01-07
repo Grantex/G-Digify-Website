@@ -58,18 +58,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = slider.querySelectorAll(".testimonial-card");
   const total = cards.length;
   let current = 0;
-  const intervalTime = 4000; // 4 seconds per slide
+
+  // Set speed: desktop vs mobile
+  const desktopSpeed = 4000; // 4s
+  const mobileSpeed = 2000;  // 2s faster for mobile
+  let intervalTime = window.innerWidth <= 768 ? mobileSpeed : desktopSpeed;
   let sliderInterval;
 
-  // --- Function to display current slide ---
   function showSlide(index) {
     cards.forEach((card, i) => {
       card.style.transform = `translateX(${100 * (i - index)}%)`;
     });
   }
 
-  // --- Auto-slide ---
   function startSlider() {
+    stopSlider(); // ensure no double intervals
     sliderInterval = setInterval(() => {
       current = (current + 1) % total;
       showSlide(current);
@@ -80,7 +83,11 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(sliderInterval);
   }
 
-  // --- Prev / Next Buttons ---
+  // --- Hover Pause (desktop) ---
+  slider.addEventListener("mouseenter", stopSlider);
+  slider.addEventListener("mouseleave", startSlider);
+
+  // --- Prev / Next Buttons (optional) ---
   const prevBtn = slider.querySelector(".prev");
   const nextBtn = slider.querySelector(".next");
 
@@ -100,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // --- Touch Swipe Support ---
+  // --- Touch Swipe Support (mobile) ---
   let startX = 0;
   let isDragging = false;
 
@@ -114,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isDragging) return;
     const currentX = e.touches[0].clientX;
     const diffX = currentX - startX;
-    // Optional: could implement visual drag effect here
+    // Optional: visual drag effect here
   });
 
   slider.addEventListener("touchend", (e) => {
@@ -122,19 +129,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const endX = e.changedTouches[0].clientX;
     const diffX = endX - startX;
 
-    if (Math.abs(diffX) > 50) { // Minimum swipe distance
+    if (Math.abs(diffX) > 50) {
       if (diffX > 0) {
-        // Swipe right → prev
-        current = (current - 1 + total) % total;
+        current = (current - 1 + total) % total; // swipe right
       } else {
-        // Swipe left → next
-        current = (current + 1) % total;
+        current = (current + 1) % total; // swipe left
       }
       showSlide(current);
     }
 
     isDragging = false;
-    startSlider(); // Restart auto-slide
+
+    // Restart auto-slide with mobile speed if on mobile
+    intervalTime = window.innerWidth <= 768 ? mobileSpeed : desktopSpeed;
+    setTimeout(startSlider, 500); // slight delay to allow reading
+  });
+
+  // --- Handle window resize to adjust speed ---
+  window.addEventListener("resize", () => {
+    intervalTime = window.innerWidth <= 768 ? mobileSpeed : desktopSpeed;
   });
 
   // --- Initialize ---
